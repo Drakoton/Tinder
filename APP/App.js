@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import '@fortawesome/fontawesome-free/css/all.min.css'; // Import Font Awesome CSS
 
 function App() {
   const [profiles, setProfiles] = useState([]);
@@ -36,15 +37,19 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Will Cupidon draw his bow for you ?</h1>
+      <h1 className="title">Profil</h1>
       <div className="profile-container">
         <div className="profile-card">
           <img src={currentProfile.photo} alt={`${currentProfile.name}'s profile`} />
           <h2>{currentProfile.name}, {currentProfile.age}</h2>
           <p>{currentProfile.description}</p>
           <div className="buttons">
-            <button className="dislike-button" onClick={() => handleSwipe('left')}>Dislike</button>
-            <button className="like-button" onClick={() => handleSwipe('right')}>Like</button>
+            <button className="dislike-button" onClick={() => handleSwipe('left')}>
+              <i className="fas fa-times"></i>
+            </button>
+            <button className="like-button" onClick={() => handleSwipe('right')}>
+              <i className="fas fa-heart"></i>
+            </button>
           </div>
         </div>
       </div>
