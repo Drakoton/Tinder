@@ -1,3 +1,9 @@
+body {
+  background-color: #ff5a5f; /* Red-pink background color for the entire page */
+  margin: 0;
+  padding: 0;
+}
+
 .app {
   text-align: center;
 }
@@ -16,6 +22,7 @@
   width: 300px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
+  background-color: #ffffff; /* White background color for the profile card */
 }
 
 .profile-card img {
@@ -39,9 +46,17 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #ff5a5f;
   color: white;
   font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.like-button {
+  background-color: #28a745; /* Green background color for the like button */
+}
+
+.dislike-button {
+  background-color: #dc3545; /* Red background color for the dislike button */
 }
 
 .buttons button:hover {
