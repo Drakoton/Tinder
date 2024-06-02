@@ -15,7 +15,15 @@ Attention il est essentiel quand on utilise le serveur Flask d'être dirigé dan
 
 ## APP
 
-La partie Frontend va quant à elle récupérer les données mise à disposition par l'API par un appel de sa route et afficher celles qu'il aura sélectionné pour répondre à la problématique et le cahier des charges fixés pour le projet.
+La partie Frontend va quant à elle récupérer les données mise à disposition par l'API par un appel de sa route et afficher celles qu'il aura sélectionné pour répondre à la problématique et le cahier des charges fixés pour le projet. On retrouve 2 fichiers essentiels à notre projet :
+
+App.js qui permet l'affichage des données sur la page web 
+App.css qui permet de rendre un meilleur affichage pour notre page web.
+
+Pour créer la partie la partie APP il faudra utiliser React. Pour cela dirigez vous sur votre terminal et ensuite dans le dossier contenant tout le projet et ensuite exécutez la commande "npx create-react-app app". Celle-ci va créer le dossier de la partie Frontend. Après avoir fait cela dirigez vous dans le dossier APP et crééz les 2 fichiers vous pouvez executez les commandes : "npm install axios" et "npm install react-swipeable".
+
+Vous avez fait toutes les configurations nécessaires pour le fonctionnement du projet maintenant lancez React avec la commande "npm run start".
+
 
 
 Ci-dessous les exigences fixées pour le projet : 
