@@ -36,15 +36,15 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Tinder Clone</h1>
+      <h1>Will Cupidon draw his bow for you ?</h1>
       <div className="profile-container">
         <div className="profile-card">
           <img src={currentProfile.photo} alt={`${currentProfile.name}'s profile`} />
           <h2>{currentProfile.name}, {currentProfile.age}</h2>
           <p>{currentProfile.description}</p>
           <div className="buttons">
-            <button onClick={() => handleSwipe('left')}>Dislike</button>
-            <button onClick={() => handleSwipe('right')}>Like</button>
+            <button className="dislike-button" onClick={() => handleSwipe('left')}>Dislike</button>
+            <button className="like-button" onClick={() => handleSwipe('right')}>Like</button>
           </div>
         </div>
       </div>
