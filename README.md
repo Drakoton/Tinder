@@ -1,4 +1,4 @@
-# Tinder
+# Projet Tinder Clone
 On va créer un mini-projet s'inspirant de Tinder. Pour cela on va avoir 2 parties dans notre projet : la partie Backend et la partie Frontend.
 
 ## API
@@ -10,12 +10,14 @@ La partie Frontend va quant à elle récupérer les données mise à disposition
 
 Ci-dessous les exigences fixées pour le projet : 
 
-Requirements
+## Requirements
+
  Frontend (React)
  — Create a React application implementing the Tinder swiping screen
  — Display user profiles with the ability to swipe left (dislike) or right (like).
  — Choose existing React components to implement the UI faster
  — UseCSSfor styling the app
+ 
  Backend (Flask)
  — Develop a Flask web service to manage user profiles.
  — Implement an API endpoint to retrieve n number of profile by API call.
