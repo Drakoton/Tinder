@@ -1,31 +1,47 @@
 from flask import Flask, jsonify, request
 import requests
 from flask_cors import CORS
-import uuid
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Enable CORS for all routes
 
-def get_random_users(n=10):
+@app.route('/profiles', methods=['GET'])
+def get_profiles():
+    # Get the number of profiles requested, default to 10 if not specified
+    n = int(request.args.get('n', 10))
+    
+    # Fetch profiles from RandomUser API
     response = requests.get(f'https://randomuser.me/api/?results={n}')
-    users = response.json().get('results', [])
-    formatted_users = [
-        {
-            "id": str(uuid.uuid4()),
-            "name": f"{user['name']['first']} {user['name']['last']}",
-            "age": user['dob']['age'],
-            "city": user['location']['city'],
-            "picture": user['picture']['large']
+    data = response.json()
+    
+    profiles = []
+    for user in data['results']:
+        profile = {
+            'name': f"{user['name']['first']} {user['name']['last']}",
+            'age': user['dob']['age'],
+            'city': user['location']['city'],
+            'country': user['location']['country'],
+            'photo': user['picture']['large'],
+            'description': generate_description(user)
         }
-        for user in users
-    ]
-    return formatted_users
-
-@app.route('/api/profiles', methods=['GET'])
-def profiles():
-    num_profiles = request.args.get('num', default=10, type=int)
-    profiles = get_random_users(num_profiles)
+        profiles.append(profile)
+    
     return jsonify(profiles)
+
+def generate_description(user):
+    # Generate a profile description dynamically
+    description_templates = [
+        "{name} is a {age}-year-old from {city}, {country}. Enjoys hiking and outdoor adventures.",
+        "{name}, {age} years old, hailing from {city}, {country}, loves reading and traveling.",
+        "Meet {name}, a {age}-year-old who lives in {city}, {country}. Passionate about cooking and music."
+    ]
+    template = description_templates[len(user['name']['first']) % len(description_templates)]
+    return template.format(
+        name=f"{user['name']['first']} {user['name']['last']}",
+        age=user['dob']['age'],
+        city=user['location']['city'],
+        country=user['location']['country']
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
