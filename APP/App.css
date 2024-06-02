@@ -1,7 +1,23 @@
 body {
-  background-color: #ff5a5f; /* Red-pink background color for the entire page */
+  background-image: url("C:\Users\rayan\OneDrive - ESME\Bureau\projet_tinder\projet_tinder\public\images\fonddd.jpg") no-repeat center center fixed; /* Adjust path as necessary */
+  background-size: cover; /* Ensure the image covers the entire background */
   margin: 0;
   padding: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Optional: add background to make the text readable */
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .app {
@@ -12,27 +28,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .profile-card {
-  border: 1px solid #ccc;
+  background: white;
   border-radius: 10px;
   padding: 20px;
   width: 300px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
-  background-color: #ffffff; /* White background color for the profile card */
 }
 
 .profile-card img {
   border-radius: 10px;
   width: 100%;
   height: auto;
+  margin-bottom: 10px;
 }
 
 .profile-card h2 {
   margin: 10px 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.profile-card p {
+  font-size: 1em;
+  color: #777;
 }
 
 .buttons {
@@ -44,21 +67,33 @@ body {
 .buttons button {
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
-  color: white;
   font-weight: bold;
-  transition: opacity 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .like-button {
-  background-color: #28a745; /* Green background color for the like button */
+  background-color: #ff5a5f; /* Red for like */
+  color: white;
 }
 
 .dislike-button {
-  background-color: #dc3545; /* Red background color for the dislike button */
+  background-color: #9b59b6; /* Purple for dislike */
+  color: white;
 }
 
 .buttons button:hover {
-  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.buttons button:active {
+  transform: scale(0.9);
+}
+
+.buttons i {
+  font-size: 1.5em;
 }
